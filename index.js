@@ -1,4 +1,4 @@
-import { getPokemons } from './pokemonService.js';
+import { getPokemons, getPokemonData  } from './pokemonService.js';
 
 const testFetching = async () => {
   const pokemons = await getPokemons();
@@ -6,3 +6,10 @@ const testFetching = async () => {
 };
 
 testFetching();
+
+const testPokemonMoves = async () => {
+    const pokemon = await getPokemonData("pikachu");
+    console.log("Pokemon fetched:", pokemon);
+  };
+  
+  testPokemonMoves();
