@@ -1,33 +1,48 @@
 import fetch from 'node-fetch';
 
-export const getPokemons = async (limit = 10) => {
+const POKEAPI_URL = 'https://pokeapi.co/api/v2';
+
+export async function getPokemons(limit = 8) {
     try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon?limit=${limit}`);
+        const response = await fetch(`${POKEAPI_URL}/pokemon?limit=${limit}`);
         const data = await response.json();
         return data.results.map(pokemon => pokemon.name);
     } catch (error) {
         console.error("Error fetching pokemons:", error.message);
         return [];
     }
-};
+}
 
-export const getPokemonData = async (pokemonName) => {
+export async function getPokemonData(pokemonName) {
     try {
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-        const data = await response.json();
-
-        const moves = data.moves.slice(0, 10).map(move => ({
-            name: move.move.name,
-            url: move.move.url
-        }));
+        const response = await fetch(`${POKEAPI_URL}/pokemon/${pokemonName}`);
+        const pokemon = await response.json();
 
         return {
-            name: data.name,
-            id: data.id,
-            moves: moves
+            name: pokemon.name,
+            moves: await getPokemonMoves(pokemon)
         };
     } catch (error) {
-        console.error(`Error fetching data for ${pokemonName}:`, error.message);
+        console.error(`Error fetching ${pokemonName} data:`, error.message);
         return null;
     }
-};
+}
+
+async function getPokemonMoves(pokemon) {
+    const moves = [];
+    for (const moveEntry of pokemon.moves.slice(0, 5)) { // Limit to 5 moves
+        try {
+            const moveResponse = await fetch(moveEntry.move.url);
+            const move = await moveResponse.json();
+            moves.push({
+                name: move.name,
+                power: move.power || 50, 
+                accuracy: move.accuracy || 100,
+                pp: move.pp || 10
+            });
+        } catch (error) {
+            console.error(`Error fetching move:`, error.message);
+        }
+    }
+    return moves;
+}
