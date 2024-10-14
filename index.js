@@ -1,15 +1,23 @@
 import { getPokemons, getPokemonData  } from './pokemonService.js';
+import prompts from 'prompts';
 
-const testFetching = async () => {
-  const pokemons = await getPokemons();
-  console.log("Pokemons fetched:", pokemons);
-};
-
-testFetching();
-
-const testPokemonMoves = async () => {
-    const pokemon = await getPokemonData("pikachu");
-    console.log("Pokemon fetched:", pokemon);
+const selectPokemon = async () => {
+    const pokemons = await getPokemons();
+  
+    const response = await prompts({
+      type: 'select',
+      name: 'pokemon',
+      message: 'Choose your Pokémon',
+      choices: pokemons.map(pokemon => ({ title: pokemon, value: pokemon }))
+    });
+  
+    return response.pokemon;
   };
   
-  testPokemonMoves();
+  const main = async () => {
+    const selectedPokemon = await selectPokemon();
+    const pokemonData = await getPokemonData(selectedPokemon);
+    console.log("You selected:", pokemonData);
+  };
+  
+  main();
