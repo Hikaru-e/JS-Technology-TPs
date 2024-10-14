@@ -1,0 +1,16 @@
+{
+    "name": "pokemon-cli-game",
+    "version": "1.0.0",
+    "description": "A command-line Pokémon game using Node.js",
+    "main": "index.js",
+    "scripts": {
+      "start": "node index.js"
+    },
+    "dependencies": {
+      "prompts": "^2.4.1",
+      "node-fetch": "^3.2.10"
+    },
+    "type": "module",
+    "author": "Hikaru-e"
+  }
+  
