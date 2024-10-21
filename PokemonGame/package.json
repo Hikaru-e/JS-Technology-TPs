@@ -4,13 +4,13 @@
     "description": "A command-line Pokémon game using Node.js",
     "main": "index.js",
     "scripts": {
-      "start": "node index.js"
+        "start": "node index.js"
     },
     "dependencies": {
-      "prompts": "^2.4.1",
-      "node-fetch": "^3.2.10"
+        "node-fetch": "^3.2.10",
+        "pokemon-cli-game": "file:",
+        "prompts": "^2.4.1"
     },
     "type": "module",
     "author": "Hikaru-e"
-  }
-  
+}
