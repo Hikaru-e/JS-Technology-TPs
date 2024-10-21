@@ -1,0 +1,16 @@
+{
+  "name": "express-crud",
+  "version": "1.0.0",
+  "description": "**Express.js** is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. It simplifies the process of building server-side applications by providing tools to manage HTTP requests, routes, middlewares, and much more. You can use Express.js to create APIs, single-page applications, and even full-fledged web applications.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "HiKaru-e",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.1",
+    "express-crud": "file:"
+  }
+}
