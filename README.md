@@ -6,3 +6,6 @@ Contains all the TPs for the course of "TECHNOLOGIE JS"
 
 ## TP : (Express.JS)
 [Check out the README](Express-CRUD/README.md)
+
+## TP : (Book Reading Tracker)
+[Check out the README](BookReadingTracker/README.md)
