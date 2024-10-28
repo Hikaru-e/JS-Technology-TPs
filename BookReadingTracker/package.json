@@ -14,7 +14,9 @@
   "dependencies": {
     "bookreadingtracker": "file:",
     "express": "^4.21.1",
-    "mongoose": "^8.7.3"
+    "glob": "^11.0.0",
+    "mongoose": "^8.7.3",
+    "rimraf": "^6.0.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.0",
