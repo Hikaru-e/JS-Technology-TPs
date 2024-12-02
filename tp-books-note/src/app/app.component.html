@@ -1,0 +1,19 @@
+<!-- FILE: app.component.html -->
+<div class="container">
+  <select [(ngModel)]="filter">
+    <option value="All">All</option>
+    <option value="unread">Unread</option>
+    <option value="read">Read</option>
+  </select>
+
+  <div *ngIf="filteredBooks.length === 0" class="no-books">
+    No books available.
+  </div>
+
+  <ul>
+    <li *ngFor="let book of filteredBooks">
+      <input type="checkbox" [checked]="book.isRead" (change)="onCheckboxChange(book)" />
+      {{ book.name }}
+    </li>
+  </ul>
+</div>

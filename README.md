@@ -9,3 +9,6 @@ Contains all the TPs for the course of "TECHNOLOGIE JS"
 
 ## TP : (Book Reading Tracker)
 [Check out the README](BookReadingTracker/README.md)
+
+## TP : (Angular Noted TP)
+[Check out the README](tp-books-note/README.md)
